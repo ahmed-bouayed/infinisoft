@@ -1,0 +1,73 @@
+<div class="contact-form">
+  <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:1.5rem;">
+    Demander un Devis Gratuit
+  </h3>
+
+  <form id="contactForm" onsubmit="handleSubmit(event)">
+
+  <input type="hidden" name="access_key" value="5b874e56-b120-44ac-ac5d-dfedd7cf5036">
+  <input type="hidden" name="subject" value="Nouvelle demande de devis - Infini-Soft">
+  <input type="hidden" name="from_name" value="Infini-Soft">
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Prénom *</label>
+      <input type="text" name="first_name" placeholder="Votre prénom" required>
+    </div>
+
+    <div class="form-group">
+      <label>Nom *</label>
+      <input type="text" name="last_name" placeholder="Votre nom" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Email *</label>
+    <input type="email" name="email" placeholder="votre@email.com" required>
+  </div>
+
+  <div class="form-group">
+    <label>Téléphone</label>
+    <input type="tel" name="phone" placeholder="+216 XX XXX XXX">
+  </div>
+
+  <div class="form-group">
+    <label>Entreprise</label>
+    <input type="text" name="company" placeholder="Nom de votre entreprise">
+  </div>
+
+  <div class="form-group">
+    <label>Service souhaité</label>
+    <select name="service">
+      <option value="">Choisir un service...</option>
+      <option>Cybersécurité</option>
+      <option>Infogérance Informatique</option>
+      <option>Maintenance Informatique</option>
+      <option>Audit Informatique</option>
+      <option>Solution ERP Odoo</option>
+      <option>Microsoft 365</option>
+      <option>Solution IT</option>
+      <option>Développement Web</option>
+      <option>Marketing Digital</option>
+      <option>Virtualisation</option>
+      <option>Téléphonie IP</option>
+      <option>Autre</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Message *</label>
+    <textarea
+      name="message"
+      placeholder="Décrivez votre projet ou votre besoin..."
+      required></textarea>
+  </div>
+
+  <button type="submit"
+          class="btn-primary"
+          style="width:100%;justify-content:center">
+    Envoyer ma Demande →
+  </button>
+
+</form>
+</div>
