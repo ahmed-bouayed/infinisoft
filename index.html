@@ -114,13 +114,13 @@ body.light-mode .logo img.light-logo { display: block; }
 .nav-cta:hover{opacity:0.9;color:#fff!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;justify-content:center;align-items:center;}
 .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
-.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;z-index:999;}
+.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;z-index:999;max-height:calc(100vh - 70px);overflow-y:auto;}
 .mobile-menu.open{display:block;}
 .mobile-menu a{display:block;padding:.7rem 0;color:var(--text2);text-decoration:none;font-size:.95rem;border-bottom:1px solid var(--border);cursor:pointer;}
-#mobileServicesMenu{background:rgba(0,200,255,0.04);border-radius:8px;margin:.3rem 0;padding:.3rem .8rem !important;}
+#mobileServicesToggle{font-weight:600;color:var(--text);}
+#mobileServicesMenu{display:none;background:rgba(0,200,255,0.04);border-radius:8px;margin:.3rem 0;padding:.3rem .8rem;}
 #mobileServicesMenu a{font-size:.9rem;padding:.55rem 0;border-bottom:1px solid rgba(0,200,255,0.08);}
 #mobileServicesMenu a:last-child{border-bottom:none;}
-#mobileServicesToggle{font-weight:600;color:var(--text);}
 
 /* ─── HERO ─── */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px;}
@@ -381,7 +381,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
           <a href="javascript:void(0)" onclick="showPage('maintenance')">Maintenance Informatique</a>
           <a href="javascript:void(0)" onclick="showPage('marketing')">Marketing Digital</a>
           <a href="javascript:void(0)" onclick="showPage('audit')">Audit Informatique</a>
-          <a href="javascript:void(0)" onclick="showPage('erp')">Solution ERP (Odoo)</a>
+          <a href="javascript:void(0)" onclick="showPage('erp')">Solution ERP</a>
           <a href="javascript:void(0)" onclick="showPage('microsoft365')">Microsoft 365</a>
           <a href="javascript:void(0)" onclick="showPage('solutionit')">Solution IT</a>
           <a href="javascript:void(0)" onclick="showPage('devweb')">Développement Web</a>
@@ -390,7 +390,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
         </div>
       </li>
       <li><a href="javascript:void(0)" onclick="showPage('solutions')" id="nav-solutions">Solutions Spécialisées</a></li>
-      <li><a href="javascript:void(0)" onclick="showPage('blog')" id="nav-blog">Blog</a></li>
+
       <li><a href="javascript:void(0)" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
       <li><a href="javascript:void(0)" onclick="showPage('contact')" class="nav-cta">Devis Gratuit</a></li>
     </ul>
@@ -405,13 +405,13 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
   <a href="javascript:void(0)" onclick="toggleMobileServices(event)" id="mobileServicesToggle" style="display:flex;justify-content:space-between;align-items:center;">
     Services <span id="mobileServicesArrow" style="transition:.3s;display:inline-block;">▾</span>
   </a>
-  <div id="mobileServicesMenu" style="display:none;padding-left:1rem;border-left:2px solid var(--border);">
+  <div id="mobileServicesMenu">
     <a href="javascript:void(0)" onclick="showPage('infogerance');toggleMenu()">Infogérance Informatique</a>
     <a href="javascript:void(0)" onclick="showPage('cybersecurite');toggleMenu()">Cybersécurité</a>
     <a href="javascript:void(0)" onclick="showPage('maintenance');toggleMenu()">Maintenance Informatique</a>
     <a href="javascript:void(0)" onclick="showPage('marketing');toggleMenu()">Marketing Digital</a>
     <a href="javascript:void(0)" onclick="showPage('audit');toggleMenu()">Audit Informatique</a>
-    <a href="javascript:void(0)" onclick="showPage('erp');toggleMenu()">Solution ERP (Odoo)</a>
+    <a href="javascript:void(0)" onclick="showPage('erp');toggleMenu()">Solution ERP</a>
     <a href="javascript:void(0)" onclick="showPage('microsoft365');toggleMenu()">Microsoft 365</a>
     <a href="javascript:void(0)" onclick="showPage('solutionit');toggleMenu()">Solution IT</a>
     <a href="javascript:void(0)" onclick="showPage('devweb');toggleMenu()">Développement Web</a>
@@ -419,7 +419,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
     <a href="javascript:void(0)" onclick="showPage('telephonie');toggleMenu()">Téléphonie IP</a>
   </div>
   <a href="javascript:void(0)" onclick="showPage('solutions');toggleMenu()">Solutions Spécialisées</a>
-  <a href="javascript:void(0)" onclick="showPage('blog');toggleMenu()">Blog</a>
+
   <a href="javascript:void(0)" onclick="showPage('contact');toggleMenu()">Contact</a>
   <a href="javascript:void(0)" onclick="showPage('contact');toggleMenu()" style="color:var(--accent);font-weight:600;">Devis Gratuit →</a>
 </div>
@@ -448,7 +448,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
             <div class="chip">Cybersécurité</div>
             <div class="chip">Cloud</div>
             <div class="chip">Réseau</div>
-            <div class="chip">Odoo ERP</div>
+            <div class="chip">ERP</div>
             <div class="chip">Microsoft 365</div>
             <div class="chip">Virtualisation</div>
             <div class="chip">DevSecOps</div>
@@ -527,8 +527,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
         </div>
         <div class="service-card fade-in" onclick="showPage('erp')">
           <div class="service-icon">📦</div>
-          <h3>Solution ERP (Odoo)</h3>
-          <p>Intégration et personnalisation de l'ERP Odoo pour optimiser vos processus métier.</p>
+          <h3>Solution ERP</h3>
+          <p>Intégration et personnalisation de l'ERP pour optimiser vos processus métier.</p>
           <a class="service-link">Savoir plus →</a>
         </div>
         <div class="service-card fade-in" onclick="showPage('telephonie')">
@@ -713,7 +713,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
         <div class="service-card" style="text-align:center"><div style="width:64px;height:64px;border-radius:50%;background:var(--grad);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem">👨‍💻</div><h3>Ingénieurs Réseau</h3><p style="color:var(--text2);font-size:.85rem">Certifiés Cisco, Fortinet, Juniper pour concevoir et sécuriser vos infrastructures réseau.</p></div>
         <div class="service-card" style="text-align:center"><div style="width:64px;height:64px;border-radius:50%;background:var(--grad);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem">🔐</div><h3>Experts Cybersécurité</h3><p style="color:var(--text2);font-size:.85rem">Spécialistes en pentest, forensic et DevSecOps pour protéger votre système d'information.</p></div>
         <div class="service-card" style="text-align:center"><div style="width:64px;height:64px;border-radius:50%;background:var(--grad);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem">🌐</div><h3>Développeurs Web</h3><p style="color:var(--text2);font-size:.85rem">Full-stack developers pour concevoir des solutions web modernes et performantes.</p></div>
-        <div class="service-card" style="text-align:center"><div style="width:64px;height:64px;border-radius:50%;background:var(--grad);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem">📊</div><h3>Consultants ERP</h3><p style="color:var(--text2);font-size:.85rem">Experts Odoo certifiés pour l'implémentation et la personnalisation de votre ERP.</p></div>
+        <div class="service-card" style="text-align:center"><div style="width:64px;height:64px;border-radius:50%;background:var(--grad);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem">📊</div><h3>Consultants ERP</h3><p style="color:var(--text2);font-size:.85rem">Experts certifiés pour l'implémentation et la personnalisation de votre ERP.</p></div>
       </div>
     </div>
   </section>
@@ -838,14 +838,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
   <div class="cta-section"><div class="cta-inner"><h2 class="section-title">Demandez votre audit IT</h2><p>Un diagnostic approfondi est la première étape vers une infrastructure IT optimale et sécurisée.</p><a class="btn-primary" onclick="showPage('contact')">Demander un Audit</a></div></div>
 </div>
 
-<!-- ══════════════ PAGE: ERP ODOO ══════════════ -->
+<!-- ══════════════ PAGE: ERP ══════════════ -->
 <div class="page" id="page-erp">
   <div class="page-hero">
     <div class="page-hero-inner">
-      <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:var(--text2)">Accueil</span><span class="sep">/</span><span class="current">Solution ERP Odoo</span></div>
-      <div class="section-label">📦 ERP Odoo</div>
-      <h1 class="section-title">Solution ERP Odoo en Tunisie</h1>
-      <p class="section-sub" style="margin:0 auto">Optimisez vos processus métier avec l'ERP Odoo, déployé et personnalisé par nos experts certifiés.</p>
+      <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:var(--text2)">Accueil</span><span class="sep">/</span><span class="current">Solution ERP</span></div>
+      <div class="section-label">📦 ERP</div>
+      <h1 class="section-title">Solution ERP en Tunisie</h1>
+      <p class="section-sub" style="margin:0 auto">Optimisez vos processus métier avec notre solution ERP, déployée et personnalisée par nos experts certifiés.</p>
     </div>
   </div>
   <section><div class="container">
@@ -853,12 +853,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
       <div class="service-card"><div class="service-icon">🛒</div><h3>Ventes & CRM</h3><p>Gérez vos opportunités commerciales, devis, commandes et suivi client depuis une interface unifiée.</p></div>
       <div class="service-card"><div class="service-icon">📦</div><h3>Gestion des Stocks</h3><p>Contrôle des inventaires, traçabilité des produits et gestion des entrepôts en temps réel.</p></div>
       <div class="service-card"><div class="service-icon">💰</div><h3>Comptabilité</h3><p>Module comptable complet : facturation, paiements, déclarations fiscales et rapports financiers.</p></div>
-      <div class="service-card"><div class="service-icon">👥</div><h3>Ressources Humaines</h3><p>Gestion des employés, paie, congés, formations et évaluations depuis Odoo HR.</p></div>
+      <div class="service-card"><div class="service-icon">👥</div><h3>Ressources Humaines</h3><p>Gestion des employés, paie, congés, formations et évaluations depuis le module RH.</p></div>
       <div class="service-card"><div class="service-icon">🏭</div><h3>Production</h3><p>Planification de production, gestion des nomenclatures et suivi des ordres de fabrication.</p></div>
       <div class="service-card"><div class="service-icon">🔧</div><h3>Paramétrage & Support</h3><p>Configuration sur-mesure, formation des utilisateurs et support technique continu post-déploiement.</p></div>
     </div>
   </div></section>
-  <div class="cta-section"><div class="cta-inner"><h2 class="section-title">Prêt à digitaliser votre gestion ?</h2><p>Nos consultants Odoo certifiés vous accompagnent de l'étude de vos besoins jusqu'à la mise en production.</p><a class="btn-primary" onclick="showPage('contact')">Demander une Démo</a></div></div>
+  <div class="cta-section"><div class="cta-inner"><h2 class="section-title">Prêt à digitaliser votre gestion ?</h2><p>Nos consultants ERP certifiés vous accompagnent de l'étude de vos besoins jusqu'à la mise en production.</p><a class="btn-primary" onclick="showPage('contact')">Demander une Démo</a></div></div>
 </div>
 
 <!-- ══════════════ PAGE: MICROSOFT 365 ══════════════ -->
@@ -1024,76 +1024,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
   <div class="cta-section"><div class="cta-inner"><h2 class="section-title">Sécurisez vos infrastructures</h2><p>Nos experts interviennent pour des études de site, certifications ou installations de sécurité électronique sur toute la Tunisie.</p><a class="btn-primary" onclick="showPage('contact')">Prendre Contact</a></div></div>
 </div>
 
-<!-- ══════════════ PAGE: BLOG ══════════════ -->
-<div class="page" id="page-blog">
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:var(--text2)">Accueil</span><span class="sep">/</span><span class="current">Blog</span></div>
-      <div class="section-label">📝 Blog</div>
-      <h1 class="section-title">Actualités & Conseils IT</h1>
-      <p class="section-sub" style="margin:0 auto">Restez informé des dernières tendances en cybersécurité, cloud, développement web et transformation digitale.</p>
-    </div>
-  </div>
-  <section><div class="container">
-    <div class="blog-grid">
-      <div class="blog-card">
-        <div class="blog-img">🛡️</div>
-        <div class="blog-body">
-          <div class="blog-tag">Cybersécurité</div>
-          <h3>Les 10 menaces cybersécurité les plus critiques en 2025</h3>
-          <p style="color:var(--text2);font-size:.85rem">Ransomware, phishing avancé, attaques sur la supply chain... découvrez comment protéger votre entreprise.</p>
-          <div class="blog-meta"><span>15 Jan 2026</span><span style="color:var(--accent);cursor:pointer">Lire →</span></div>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img">☁️</div>
-        <div class="blog-body">
-          <div class="blog-tag">Cloud</div>
-          <h3>Migration Microsoft 365 : guide complet pour les PME tunisiennes</h3>
-          <p style="color:var(--text2);font-size:.85rem">Tout ce que vous devez savoir pour migrer vos outils vers Microsoft 365 sans interruption.</p>
-          <div class="blog-meta"><span>08 Jan 2026</span><span style="color:var(--accent);cursor:pointer">Lire →</span></div>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img">🤖</div>
-        <div class="blog-body">
-          <div class="blog-tag">Transformation Digitale</div>
-          <h3>L'intelligence artificielle au service des PME : cas pratiques</h3>
-          <p style="color:var(--text2);font-size:.85rem">Comment les PME tunisiennes peuvent tirer parti de l'IA pour automatiser leurs processus.</p>
-          <div class="blog-meta"><span>02 Jan 2026</span><span style="color:var(--accent);cursor:pointer">Lire →</span></div>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img">📦</div>
-        <div class="blog-body">
-          <div class="blog-tag">ERP</div>
-          <h3>Odoo 17 : les nouvelles fonctionnalités qui changent la donne</h3>
-          <p style="color:var(--text2);font-size:.85rem">Tour d'horizon des améliorations majeures d'Odoo 17 pour la gestion d'entreprise.</p>
-          <div class="blog-meta"><span>20 Déc 2025</span><span style="color:var(--accent);cursor:pointer">Lire →</span></div>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img">🔌</div>
-        <div class="blog-body">
-          <div class="blog-tag">Réseau</div>
-          <h3>WiFi 6E en entreprise : pourquoi passer à la nouvelle génération ?</h3>
-          <p style="color:var(--text2);font-size:.85rem">Performance, latence, densité d'appareils : tout sur les bénéfices du WiFi 6E pour votre entreprise.</p>
-          <div class="blog-meta"><span>15 Déc 2025</span><span style="color:var(--accent);cursor:pointer">Lire →</span></div>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img">🔐</div>
-        <div class="blog-body">
-          <div class="blog-tag">DevSecOps</div>
-          <h3>DevSecOps : intégrer la sécurité dès la phase de développement</h3>
-          <p style="color:var(--text2);font-size:.85rem">Pourquoi et comment intégrer la sécurité dans votre pipeline CI/CD pour livrer du code sécurisé.</p>
-          <div class="blog-meta"><span>05 Déc 2025</span><span style="color:var(--accent);cursor:pointer">Lire →</span></div>
-        </div>
-      </div>
-    </div>
-  </div></section>
-</div>
-
 <!-- ══════════════ PAGE: CONTACT ══════════════ -->
 <div class="page" id="page-contact">
   <div class="page-hero">
@@ -1152,7 +1082,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
             <option>Infogérance Informatique</option>
             <option>Maintenance Informatique</option>
             <option>Audit Informatique</option>
-            <option>Solution ERP Odoo</option>
+            <option>Solution ERP</option>
             <option>Microsoft 365</option>
             <option>Solution IT</option>
             <option>Développement Web</option>
@@ -1217,7 +1147,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
         <li><a>Tunis · Sfax · Sousse · Mahdia</a></li>
         <li><a>contact@infini-soft.tn</a></li>
         <li style="margin-top:.8rem"><a href="javascript:void(0)" onclick="showPage('about')">À Propos</a></li>
-        <li><a href="javascript:void(0)" onclick="showPage('blog')">Blog</a></li>
         <li><a href="javascript:void(0)" onclick="showPage('contact')">Devis Gratuit</a></li>
       </ul>
     </div>
@@ -1290,12 +1219,40 @@ function showPage(id) {
   
   // Close mobile menu if open
   const mobileMenu = document.getElementById('mobileMenu');
-  if (mobileMenu) mobileMenu.classList.remove('open');
+  if (mobileMenu) {
+    mobileMenu.classList.remove('open');
+    const sub = document.getElementById('mobileServicesMenu');
+    const arrow = document.getElementById('mobileServicesArrow');
+    if (sub) sub.style.display = 'none';
+    if (arrow) arrow.style.transform = '';
+  }
 }
 
 // ─── HAMBURGER ───
 function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
+  const menu = document.getElementById('mobileMenu');
+  if (!menu) return;
+  if (menu.classList.contains('open')) {
+    menu.classList.remove('open');
+    // reset sous-menu services
+    const sub = document.getElementById('mobileServicesMenu');
+    const arrow = document.getElementById('mobileServicesArrow');
+    if (sub) sub.style.display = 'none';
+    if (arrow) arrow.style.transform = '';
+  } else {
+    menu.classList.add('open');
+  }
+}
+
+// ─── SOUS-MENU SERVICES MOBILE ───
+function toggleMobileServices(e) {
+  if (e) e.stopPropagation();
+  const sub = document.getElementById('mobileServicesMenu');
+  const arrow = document.getElementById('mobileServicesArrow');
+  if (!sub) return;
+  const isOpen = sub.style.display === 'block';
+  sub.style.display = isOpen ? 'none' : 'block';
+  if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
 }
 
 // ─── FADE-IN OBSERVER ───
