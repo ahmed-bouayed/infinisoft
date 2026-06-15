@@ -77,6 +77,7 @@ body.light-mode {
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden; scroll-behavior: smooth;}
+body.menu-open{overflow:hidden;height:100vh;overscroll-behavior:none;}
 
 /* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar{width:6px;}
@@ -114,7 +115,7 @@ body.light-mode .logo img.light-logo { display: block; }
 .nav-cta:hover{opacity:0.9;color:#fff!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;justify-content:center;align-items:center;}
 .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
-.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;z-index:999;max-height:calc(100vh - 70px);overflow-y:auto;}
+.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;z-index:999;max-height:calc(100vh - 70px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
 .mobile-menu.open{display:block;}
 .mobile-menu a{display:block;padding:.7rem 0;color:var(--text2);text-decoration:none;font-size:.95rem;border-bottom:1px solid var(--border);cursor:pointer;}
 #mobileServicesToggle{font-weight:600;color:var(--text);}
@@ -1133,6 +1134,7 @@ function showPage(id) {
   const mobileMenu = document.getElementById('mobileMenu');
   if (mobileMenu) {
     mobileMenu.classList.remove('open');
+    document.body.classList.remove('menu-open');
     const sub = document.getElementById('mobileServicesMenu');
     const arrow = document.getElementById('mobileServicesArrow');
     const solutionsSub = document.getElementById('mobileSolutionsMenu');
@@ -1150,13 +1152,19 @@ function toggleMenu() {
   if (!menu) return;
   if (menu.classList.contains('open')) {
     menu.classList.remove('open');
+    document.body.classList.remove('menu-open');
     // reset sous-menu services
     const sub = document.getElementById('mobileServicesMenu');
     const arrow = document.getElementById('mobileServicesArrow');
+    const solutionsSub = document.getElementById('mobileSolutionsMenu');
+    const solutionsArrow = document.getElementById('mobileSolutionsArrow');
     if (sub) sub.style.display = 'none';
     if (arrow) arrow.style.transform = '';
+    if (solutionsSub) solutionsSub.style.display = 'none';
+    if (solutionsArrow) solutionsArrow.style.transform = '';
   } else {
     menu.classList.add('open');
+    document.body.classList.add('menu-open');
   }
 }
 
