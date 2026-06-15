@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infini-Soft – Société Informatique</title>
+<title>Infini-Soft</title>
 <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -112,7 +112,7 @@ body.light-mode .logo img.light-logo { display: block; }
 .dropdown a:hover{color:var(--accent);background:rgba(0,200,255,0.07);transform: translateX(5px);}
 .nav-cta{background:var(--grad);color:#fff!important;border-radius:8px;padding:0.5rem 1.2rem!important;font-weight:600!important;-webkit-text-fill-color:#fff!important;}
 .nav-cta:hover{opacity:0.9;color:#fff!important;}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;justify-content:center;align-items:center;}
 .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
 .mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;z-index:999;}
 .mobile-menu.open{display:block;}
@@ -286,19 +286,70 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
 .fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s;}
 .fade-in.visible{opacity:1;transform:none;}
 
+/* ══════════════════════════════════════════
+   RESPONSIVE — TABLET  (≤ 900px)
+══════════════════════════════════════════ */
 @media(max-width:900px){
-  .hero-inner,.about-grid,.contact-grid,.footer-grid{grid-template-columns:1fr;}
-  .stats-bar-inner{grid-template-columns:repeat(2,1fr);}
-  .hero-visual{display:none;}
   .nav-links,.nav-cta{display:none;}
   .hamburger{display:flex;}
+  .hero-inner{grid-template-columns:1fr;gap:2rem;padding:3rem 1.5rem;}
+  .hero-visual{display:none;}
+  .hero h1{font-size:clamp(1.9rem,5vw,2.8rem);}
+  .hero p{font-size:.97rem;}
+  .hero-btns{flex-direction:column;gap:.75rem;}
+  .btn-primary,.btn-outline{width:100%;text-align:center;padding:.85rem 1.5rem;}
+  section{padding:3.5rem 0;}
+  .container{padding:0 1.25rem;}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem;}
+  .stats-bar-inner{grid-template-columns:repeat(2,1fr);gap:1.5rem;}
   .form-row{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr 1fr;}
+  .contact-form{padding:1.75rem 1.25rem;}
+  .page-hero{padding:6rem 0 3rem;}
+  .about-features{grid-template-columns:1fr;}
+  .offers-grid{grid-template-columns:1fr 1fr;}
+  .solutions-hero-cards{grid-template-columns:1fr 1fr;}
 }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — MOBILE  (≤ 600px)
+══════════════════════════════════════════ */
 @media(max-width:600px){
-  .stats-bar-inner{grid-template-columns:1fr 1fr;}
-  .footer-grid{grid-template-columns:1fr;}
+  .nav-inner{padding:0 1rem;}
+  .mobile-menu{padding:1rem 1.25rem;}
+  .hero{padding-top:70px;}
+  .hero-inner{padding:2.5rem 1rem;}
+  .hero h1{font-size:clamp(1.7rem,7vw,2.2rem);}
+  .hero-badge{font-size:.75rem;padding:.3rem .8rem;}
+  section{padding:2.5rem 0;}
+  .container{padding:0 1rem;}
+  .section-title{font-size:clamp(1.5rem,6vw,2rem);}
+  .section-header{margin-bottom:2rem;}
+  .stats-bar-inner{grid-template-columns:1fr 1fr;gap:1rem;padding:1.5rem 1rem;}
+  .stat-box .num{font-size:2rem;}
+  .services-grid{grid-template-columns:1fr;}
+  .about-grid{gap:2rem;}
+  .about-img-placeholder{font-size:3rem;}
+  .testimonials-grid{grid-template-columns:1fr;}
+  .blog-grid{grid-template-columns:1fr;}
+  .offers-grid{grid-template-columns:1fr;}
+  .solutions-hero-cards{grid-template-columns:1fr;}
+  .contact-form{padding:1.5rem 1rem;}
+  .contact-grid{gap:2rem;}
+  .footer-grid{grid-template-columns:1fr;gap:2rem;}
   .footer-bottom{flex-direction:column;gap:.5rem;text-align:center;}
+  footer{padding:3rem 0 1.5rem;}
+  .page-hero{padding:5rem 0 2.5rem;}
+  .page-hero-inner{padding:0 1rem;}
+  .breadcrumb{flex-wrap:wrap;justify-content:center;}
+  .cta-inner{padding:3rem 1rem;}
+  .cta-inner h2{font-size:clamp(1.4rem,6vw,1.9rem);}
+  .expertise-detail{padding:1.5rem 1rem;}
+  .partners-row{gap:1rem;}
+  .partner-logo{padding:.6rem 1.2rem;font-size:.8rem;}
+  .btn-primary,.btn-outline{display:block;width:100%;text-align:center;}
+  .hero-btns{flex-direction:column;}
 }
 </style>
 </head>
@@ -347,16 +398,26 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
 <div class="mobile-menu" id="mobileMenu">
   <a href="javascript:void(0)" onclick="showPage('home');toggleMenu()">Accueil</a>
   <a href="javascript:void(0)" onclick="showPage('about');toggleMenu()">À Propos</a>
-  <a href="javascript:void(0)" onclick="showPage('cybersecurite');toggleMenu()">Cybersécurité</a>
-  <a href="javascript:void(0)" onclick="showPage('infogerance');toggleMenu()">Infogérance</a>
-  <a href="javascript:void(0)" onclick="showPage('maintenance');toggleMenu()">Maintenance</a>
-  <a href="javascript:void(0)" onclick="showPage('marketing');toggleMenu()">Marketing Digital</a>
-  <a href="javascript:void(0)" onclick="showPage('audit');toggleMenu()">Audit</a>
-  <a href="javascript:void(0)" onclick="showPage('erp');toggleMenu()">Solution ERP</a>
-  <a href="javascript:void(0)" onclick="showPage('devweb');toggleMenu()">Développement Web</a>
+  <a href="javascript:void(0)" onclick="toggleMobileServices()" id="mobileServicesToggle" style="display:flex;justify-content:space-between;align-items:center;">
+    Services <span id="mobileServicesArrow" style="transition:.3s;display:inline-block;">▾</span>
+  </a>
+  <div id="mobileServicesMenu" style="display:none;padding-left:1rem;border-left:2px solid var(--border);">
+    <a href="javascript:void(0)" onclick="showPage('infogerance');toggleMenu()">Infogérance Informatique</a>
+    <a href="javascript:void(0)" onclick="showPage('cybersecurite');toggleMenu()">Cybersécurité</a>
+    <a href="javascript:void(0)" onclick="showPage('maintenance');toggleMenu()">Maintenance Informatique</a>
+    <a href="javascript:void(0)" onclick="showPage('marketing');toggleMenu()">Marketing Digital</a>
+    <a href="javascript:void(0)" onclick="showPage('audit');toggleMenu()">Audit Informatique</a>
+    <a href="javascript:void(0)" onclick="showPage('erp');toggleMenu()">Solution ERP (Odoo)</a>
+    <a href="javascript:void(0)" onclick="showPage('microsoft365');toggleMenu()">Microsoft 365</a>
+    <a href="javascript:void(0)" onclick="showPage('solutionit');toggleMenu()">Solution IT</a>
+    <a href="javascript:void(0)" onclick="showPage('devweb');toggleMenu()">Développement Web</a>
+    <a href="javascript:void(0)" onclick="showPage('virtualisation');toggleMenu()">Virtualisation</a>
+    <a href="javascript:void(0)" onclick="showPage('telephonie');toggleMenu()">Téléphonie IP</a>
+  </div>
   <a href="javascript:void(0)" onclick="showPage('solutions');toggleMenu()">Solutions Spécialisées</a>
   <a href="javascript:void(0)" onclick="showPage('blog');toggleMenu()">Blog</a>
   <a href="javascript:void(0)" onclick="showPage('contact');toggleMenu()">Contact</a>
+  <a href="javascript:void(0)" onclick="showPage('contact');toggleMenu()" style="color:var(--accent);font-weight:600;">Devis Gratuit →</a>
 </div>
 
 <!-- ══════════════ PAGE: ACCUEIL ══════════════ -->
@@ -1116,7 +1177,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
       <p>Société informatique. Nous transformons vos défis technologiques en solutions innovantes et performantes.</p>
       <div class="footer-socials">
         <div class="social-btn">in</div>
-        <div class="social-btn">f</div>
+        <a href="https://www.facebook.com/profile.php?id=61590506285521" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook">f</a>
         <div class="social-btn">𝕏</div>
         <div class="social-btn">▶</div>
       </div>

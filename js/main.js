@@ -21,8 +21,36 @@ function toggleMenu() {
   const mobileMenu = document.getElementById('mobileMenu');
   if (mobileMenu) {
     mobileMenu.classList.toggle('open');
+    // reset services sub-menu when closing
+    if (!mobileMenu.classList.contains('open')) {
+      const sub = document.getElementById('mobileServicesMenu');
+      const arrow = document.getElementById('mobileServicesArrow');
+      if (sub) sub.style.display = 'none';
+      if (arrow) arrow.style.transform = '';
+    }
   }
 }
+
+// ─── MOBILE SERVICES ACCORDION ───
+function toggleMobileServices() {
+  const sub = document.getElementById('mobileServicesMenu');
+  const arrow = document.getElementById('mobileServicesArrow');
+  if (!sub) return;
+  const isOpen = sub.style.display === 'block';
+  sub.style.display = isOpen ? 'none' : 'block';
+  if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
+}
+
+// Close mobile menu when tapping outside
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobileMenu');
+  const hamburger = document.querySelector('.hamburger');
+  if (menu && menu.classList.contains('open')) {
+    if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+      toggleMenu();
+    }
+  }
+});
 
 // ─── FADE-IN OBSERVER ───
 function initFadeIn() {
@@ -63,13 +91,8 @@ function animateCounters() {
   });
 }
 
-// ─── FORM SUBMIT ───
-
-
 // ─── INIT ───
 document.addEventListener('DOMContentLoaded', () => {
   initFadeIn();
   animateCounters();
 });
-
-// loadBlogPosts supprimé pour version VITRINE SEULE
