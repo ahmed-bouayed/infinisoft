@@ -62,13 +62,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,14,26,0.
 .nav-cta:hover{opacity:0.9;color:#fff!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;min-width:44px;min-height:44px;justify-content:center;align-items:center;}
 .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
-.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;z-index:999;}
+.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;z-index:999;max-height:calc(100vh - 70px);overflow-y:auto;}
 .mobile-menu.open{display:block;}
 .mobile-menu a{display:block;padding:.7rem 0;color:var(--text2);text-decoration:none;font-size:.95rem;border-bottom:1px solid var(--border);cursor:pointer;}
-#mobileServicesMenu{background:rgba(0,200,255,0.04);border-radius:8px;margin:.3rem 0;padding:.3rem .8rem !important;}
+#mobileServicesToggle{font-weight:600;color:var(--text);}
+#mobileServicesMenu{display:none;background:rgba(0,200,255,0.04);border-radius:8px;margin:.3rem 0;padding:.3rem .8rem;}
 #mobileServicesMenu a{font-size:.9rem;padding:.55rem 0;border-bottom:1px solid rgba(0,200,255,0.08);}
 #mobileServicesMenu a:last-child{border-bottom:none;}
-#mobileServicesToggle{font-weight:600;color:var(--text);}
 
 /* ─── HERO ─── */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px;}
