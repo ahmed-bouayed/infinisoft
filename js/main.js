@@ -59,17 +59,6 @@ function toggleMobileServices(e) {
   }
 }
 
-// Fermer le menu en cliquant en dehors
-document.addEventListener('click', function(e) {
-  const menu = document.getElementById('mobileMenu');
-  const hamburger = document.querySelector('.hamburger');
-  if (menu && menu.classList.contains('open')) {
-    if (!menu.contains(e.target) && hamburger && !hamburger.contains(e.target)) {
-      closeMenu();
-    }
-  }
-});
-
 // ─── FADE-IN OBSERVER ───
 function initFadeIn() {
   setTimeout(() => {
