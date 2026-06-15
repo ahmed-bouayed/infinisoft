@@ -117,6 +117,10 @@ body.light-mode .logo img.light-logo { display: block; }
 .mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;z-index:999;}
 .mobile-menu.open{display:block;}
 .mobile-menu a{display:block;padding:.7rem 0;color:var(--text2);text-decoration:none;font-size:.95rem;border-bottom:1px solid var(--border);cursor:pointer;}
+#mobileServicesMenu{background:rgba(0,200,255,0.04);border-radius:8px;margin:.3rem 0;padding:.3rem .8rem !important;}
+#mobileServicesMenu a{font-size:.9rem;padding:.55rem 0;border-bottom:1px solid rgba(0,200,255,0.08);}
+#mobileServicesMenu a:last-child{border-bottom:none;}
+#mobileServicesToggle{font-weight:600;color:var(--text);}
 
 /* ─── HERO ─── */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px;}
@@ -398,7 +402,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
 <div class="mobile-menu" id="mobileMenu">
   <a href="javascript:void(0)" onclick="showPage('home');toggleMenu()">Accueil</a>
   <a href="javascript:void(0)" onclick="showPage('about');toggleMenu()">À Propos</a>
-  <a href="javascript:void(0)" onclick="toggleMobileServices()" id="mobileServicesToggle" style="display:flex;justify-content:space-between;align-items:center;">
+  <a href="javascript:void(0)" onclick="toggleMobileServices(event)" id="mobileServicesToggle" style="display:flex;justify-content:space-between;align-items:center;">
     Services <span id="mobileServicesArrow" style="transition:.3s;display:inline-block;">▾</span>
   </a>
   <div id="mobileServicesMenu" style="display:none;padding-left:1rem;border-left:2px solid var(--border);">

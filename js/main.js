@@ -32,7 +32,8 @@ function toggleMenu() {
 }
 
 // ─── MOBILE SERVICES ACCORDION ───
-function toggleMobileServices() {
+function toggleMobileServices(e) {
+  if (e) e.stopPropagation();
   const sub = document.getElementById('mobileServicesMenu');
   const arrow = document.getElementById('mobileServicesArrow');
   if (!sub) return;
@@ -46,7 +47,7 @@ document.addEventListener('click', function(e) {
   const menu = document.getElementById('mobileMenu');
   const hamburger = document.querySelector('.hamburger');
   if (menu && menu.classList.contains('open')) {
-    if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+    if (!menu.contains(e.target) && hamburger && !hamburger.contains(e.target)) {
       toggleMenu();
     }
   }
