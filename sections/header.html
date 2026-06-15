@@ -13,17 +13,23 @@
           <a onclick="showPage('infogerance')">Infogérance Informatique</a>
           <a onclick="showPage('cybersecurite')">Cybersécurité</a>
           <a onclick="showPage('maintenance')">Maintenance Informatique</a>
-          <a onclick="showPage('marketing')">Marketing Digital</a>
           <a onclick="showPage('audit')">Audit Informatique</a>
           <a onclick="showPage('erp')">Solution ERP (Odoo)</a>
           <a onclick="showPage('microsoft365')">Microsoft 365</a>
           <a onclick="showPage('solutionit')">Solution IT</a>
           <a onclick="showPage('devweb')">Développement Web</a>
           <a onclick="showPage('virtualisation')">Virtualisation</a>
-          <a onclick="showPage('telephonie')">Téléphonie IP</a>
         </div>
       </li>
-      <li><a onclick="showPage('solutions')" id="nav-solutions">Solutions Spécialisées</a></li>
+      <li>
+        <a id="nav-solutions">Solutions ▾</a>
+        <div class="dropdown">
+          <a onclick="showPage('microsoft365')">Microsoft 365</a>
+          <a onclick="showPage('solutionit')">Solution IT</a>
+          <a onclick="showPage('virtualisation')">Virtualisation</a>
+          <a onclick="showPage('solutions')">Site Survey</a>
+        </div>
+      </li>
       <li><a onclick="showPage('blog')" id="nav-blog">Blog</a></li>
       <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
       <li><a onclick="showPage('contact')" class="nav-cta">Devis Gratuit</a></li>
@@ -39,11 +45,16 @@
   <a onclick="showPage('cybersecurite');toggleMenu()">Cybersécurité</a>
   <a onclick="showPage('infogerance');toggleMenu()">Infogérance</a>
   <a onclick="showPage('maintenance');toggleMenu()">Maintenance</a>
-  <a onclick="showPage('marketing');toggleMenu()">Marketing Digital</a>
   <a onclick="showPage('audit');toggleMenu()">Audit</a>
   <a onclick="showPage('erp');toggleMenu()">Solution ERP</a>
   <a onclick="showPage('devweb');toggleMenu()">Développement Web</a>
-  <a onclick="showPage('solutions');toggleMenu()">Solutions Spécialisées</a>
+  <a onclick="toggleMobileSolutions(event)" id="mobileSolutionsToggle" style="display:flex;justify-content:space-between;align-items:center;">Solutions <span id="mobileSolutionsArrow" style="transition:.3s;display:inline-block;">▾</span></a>
+  <div id="mobileSolutionsMenu">
+    <a onclick="showPage('microsoft365')">Microsoft 365</a>
+    <a onclick="showPage('solutionit')">Solution IT</a>
+    <a onclick="showPage('virtualisation')">Virtualisation</a>
+    <a onclick="showPage('solutions')">Site Survey</a>
+  </div>
   <a onclick="showPage('blog');toggleMenu()">Blog</a>
   <a onclick="showPage('contact');toggleMenu()">Contact</a>
 </div>

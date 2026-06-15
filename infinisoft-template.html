@@ -274,17 +274,23 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
           <a onclick="showPage('infogerance')">Infogérance Informatique</a>
           <a onclick="showPage('cybersecurite')">Cybersécurité</a>
           <a onclick="showPage('maintenance')">Maintenance Informatique</a>
-          <a onclick="showPage('marketing')">Marketing Digital</a>
           <a onclick="showPage('audit')">Audit Informatique</a>
           <a onclick="showPage('erp')">Solution ERP (Odoo)</a>
           <a onclick="showPage('microsoft365')">Microsoft 365</a>
           <a onclick="showPage('solutionit')">Solution IT</a>
           <a onclick="showPage('devweb')">Développement Web</a>
           <a onclick="showPage('virtualisation')">Virtualisation</a>
-          <a onclick="showPage('telephonie')">Téléphonie IP</a>
         </div>
       </li>
-      <li><a onclick="showPage('solutions')" id="nav-solutions">Solutions Spécialisées</a></li>
+      <li>
+        <a id="nav-solutions">Solutions ▾</a>
+        <div class="dropdown">
+          <a onclick="showPage('microsoft365')">Microsoft 365</a>
+          <a onclick="showPage('solutionit')">Solution IT</a>
+          <a onclick="showPage('virtualisation')">Virtualisation</a>
+          <a onclick="showPage('solutions')">Site Survey</a>
+        </div>
+      </li>
       <li><a onclick="showPage('blog')" id="nav-blog">Blog</a></li>
       <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
       <li><a onclick="showPage('contact')" class="nav-cta">Devis Gratuit</a></li>
@@ -300,11 +306,16 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
   <a onclick="showPage('cybersecurite');toggleMenu()">Cybersécurité</a>
   <a onclick="showPage('infogerance');toggleMenu()">Infogérance</a>
   <a onclick="showPage('maintenance');toggleMenu()">Maintenance</a>
-  <a onclick="showPage('marketing');toggleMenu()">Marketing Digital</a>
   <a onclick="showPage('audit');toggleMenu()">Audit</a>
   <a onclick="showPage('erp');toggleMenu()">Solution ERP</a>
   <a onclick="showPage('devweb');toggleMenu()">Développement Web</a>
-  <a onclick="showPage('solutions');toggleMenu()">Solutions Spécialisées</a>
+  <a onclick="toggleMobileSolutions(event)" id="mobileSolutionsToggle" style="display:flex;justify-content:space-between;align-items:center;">Solutions <span id="mobileSolutionsArrow" style="transition:.3s;display:inline-block;">▾</span></a>
+  <div id="mobileSolutionsMenu">
+    <a onclick="showPage('microsoft365')">Microsoft 365</a>
+    <a onclick="showPage('solutionit')">Solution IT</a>
+    <a onclick="showPage('virtualisation')">Virtualisation</a>
+    <a onclick="showPage('solutions')">Site Survey</a>
+  </div>
   <a onclick="showPage('blog');toggleMenu()">Blog</a>
   <a onclick="showPage('contact');toggleMenu()">Contact</a>
 </div>
@@ -320,7 +331,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
       <div>
         <div class="hero-badge"><span></span> Société Informatique Tunisie</div>
         <h1>Transformez vos défis IT en <span class="grad">solutions innovantes</span></h1>
-        <p>Chez Infini-Soft, nous accompagnons les entreprises de toutes tailles dans leur transformation numérique avec des solutions technologiques sur-mesure, performantes et sécurisées.</p>
+        <p>Infini-Soft est une société de services et d’ingénierie informatique. Notre mission est d’accompagner les particuliers, les étudiants, les professionnels et les entreprises dans leur transformation digitale grâce à des solutions innovantes, performantes et adaptées aux besoins du marché.</p>
         <div class="hero-btns">
           <a class="btn-primary" onclick="showPage('contact')">Devis Gratuit</a>
           <a class="btn-outline" onclick="showPage('about')">Découvrir Infini-Soft</a>
@@ -365,7 +376,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
       <div class="section-header text-center fade-in">
         <div class="section-label">Nos Services</div>
         <h2 class="section-title">Solutions Informatiques Complètes</h2>
-        <p class="section-sub">De la cybersécurité au développement web, en passant par l'infogérance et la téléphonie IP — nous couvrons tous vos besoins IT.</p>
+        <p class="section-sub">De la cybersécurité au développement web, en passant par l'infogérance — nous couvrons tous vos besoins IT.</p>
       </div>
       <div class="services-grid">
         <div class="service-card fade-in" onclick="showPage('cybersecurite')">
@@ -404,22 +415,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
           <p>Sites web, applications métier et e-commerce modernes, performants et adaptés à votre marque.</p>
           <a class="service-link">Savoir plus →</a>
         </div>
-        <div class="service-card fade-in" onclick="showPage('marketing')">
-          <div class="service-icon">📈</div>
-          <h3>Marketing Digital</h3>
-          <p>SEO, publicité en ligne, social media et stratégie digitale pour booster votre visibilité.</p>
-          <a class="service-link">Savoir plus →</a>
-        </div>
         <div class="service-card fade-in" onclick="showPage('erp')">
           <div class="service-icon">📦</div>
           <h3>Solution ERP (Odoo)</h3>
           <p>Intégration et personnalisation de l'ERP Odoo pour optimiser vos processus métier.</p>
-          <a class="service-link">Savoir plus →</a>
-        </div>
-        <div class="service-card fade-in" onclick="showPage('telephonie')">
-          <div class="service-icon">📞</div>
-          <h3>Téléphonie IP</h3>
-          <p>Solutions VoIP et communications unifiées pour une connectivité optimale de vos équipes.</p>
           <a class="service-link">Savoir plus →</a>
         </div>
         <div class="service-card fade-in" onclick="showPage('microsoft365')">
@@ -677,29 +676,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
   <div class="cta-section"><div class="cta-inner"><h2 class="section-title">Protégez votre parc informatique</h2><p>Contactez nos techniciens certifiés pour un contrat de maintenance adapté à vos besoins.</p><a class="btn-primary" onclick="showPage('contact')">Demander un Devis</a></div></div>
 </div>
 
-<!-- ══════════════ PAGE: MARKETING DIGITAL ══════════════ -->
-<div class="page" id="page-marketing">
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:var(--text2)">Accueil</span><span class="sep">/</span><span class="current">Marketing Digital</span></div>
-      <div class="section-label">📈 Marketing Digital</div>
-      <h1 class="section-title">Agence Marketing Digital Tunisie</h1>
-      <p class="section-sub" style="margin:0 auto">Boostez votre visibilité en ligne et attirez de nouveaux clients grâce à nos stratégies digitales.</p>
-    </div>
-  </div>
-  <section><div class="container">
-    <div class="services-grid">
-      <div class="service-card"><div class="service-icon">🔍</div><h3>Référencement SEO</h3><p>Optimisation de votre site web pour les moteurs de recherche et amélioration de votre positionnement organique.</p></div>
-      <div class="service-card"><div class="service-icon">📣</div><h3>Publicité en Ligne (SEA)</h3><p>Campagnes Google Ads et Facebook Ads ciblées pour générer des leads qualifiés rapidement.</p></div>
-      <div class="service-card"><div class="service-icon">📱</div><h3>Social Media</h3><p>Gestion de vos réseaux sociaux, création de contenu et animation de communauté pour votre marque.</p></div>
-      <div class="service-card"><div class="service-icon">✉️</div><h3>Email Marketing</h3><p>Campagnes d'emailing personnalisées pour fidéliser vos clients et augmenter vos conversions.</p></div>
-      <div class="service-card"><div class="service-icon">📊</div><h3>Analytics & Reporting</h3><p>Analyse des performances de vos actions digitales avec des tableaux de bord clairs et actionnables.</p></div>
-      <div class="service-card"><div class="service-icon">✍️</div><h3>Content Marketing</h3><p>Création de contenu à valeur ajoutée pour attirer et convertir votre audience cible.</p></div>
-    </div>
-  </div></section>
-  <div class="cta-section"><div class="cta-inner"><h2 class="section-title">Développez votre présence en ligne</h2><p>Nos experts en marketing digital construisent et exécutent des stratégies performantes pour votre croissance.</p><a class="btn-primary" onclick="showPage('contact')">Démarrer ma Stratégie</a></div></div>
-</div>
-
 <!-- ══════════════ PAGE: AUDIT ══════════════ -->
 <div class="page" id="page-audit">
   <div class="page-hero">
@@ -835,29 +811,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
   <div class="cta-section"><div class="cta-inner"><h2 class="section-title">Modernisez votre infrastructure</h2><p>La virtualisation réduit vos coûts, améliore la disponibilité et simplifie la gestion de votre IT.</p><a class="btn-primary" onclick="showPage('contact')">En savoir plus</a></div></div>
 </div>
 
-<!-- ══════════════ PAGE: TÉLÉPHONIE ══════════════ -->
-<div class="page" id="page-telephonie">
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:var(--text2)">Accueil</span><span class="sep">/</span><span class="current">Téléphonie IP</span></div>
-      <div class="section-label">📞 Téléphonie IP</div>
-      <h1 class="section-title">Solutions Téléphonie IP & VoIP Tunisie</h1>
-      <p class="section-sub" style="margin:0 auto">Communications unifiées, VoIP et visioconférence pour connecter vos équipes efficacement.</p>
-    </div>
-  </div>
-  <section><div class="container">
-    <div class="services-grid">
-      <div class="service-card"><div class="service-icon">📞</div><h3>IPBX d'Entreprise</h3><p>Installation de centraux téléphoniques IP pour gérer vos communications internes et externes.</p></div>
-      <div class="service-card"><div class="service-icon">🎙️</div><h3>VoIP & SIP Trunk</h3><p>Lignes téléphoniques IP pour réduire vos coûts de communication et bénéficier d'une haute disponibilité.</p></div>
-      <div class="service-card"><div class="service-icon">📹</div><h3>Visioconférence</h3><p>Solutions de vidéoconférence pour les réunions à distance entre vos équipes et partenaires.</p></div>
-      <div class="service-card"><div class="service-icon">💬</div><h3>Messagerie Unifiée</h3><p>Centralisation de vos communications (voix, email, chat) dans une seule interface intuitive.</p></div>
-      <div class="service-card"><div class="service-icon">📱</div><h3>Softphone Mobile</h3><p>Applications mobiles pour que vos équipes puissent travailler depuis n'importe où avec leur numéro fixe.</p></div>
-      <div class="service-card"><div class="service-icon">🔧</div><h3>Support & Maintenance</h3><p>Support technique et maintenance de votre infrastructure téléphonique avec SLA garanti.</p></div>
-    </div>
-  </div></section>
-  <div class="cta-section"><div class="cta-inner"><h2 class="section-title">Modernisez votre téléphonie</h2><p>Réduisez vos coûts de communication et améliorez la collaboration de vos équipes avec nos solutions VoIP.</p><a class="btn-primary" onclick="showPage('contact')">Demander un Devis</a></div></div>
-</div>
-
 <!-- ══════════════ PAGE: SOLUTIONS SPÉCIALISÉES ══════════════ -->
 <div class="page" id="page-solutions">
   <div class="page-hero">
@@ -865,7 +818,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
       <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:var(--text2)">Accueil</span><span class="sep">/</span><span class="current">Solutions Spécialisées</span></div>
       <div class="section-label">🔌 Solutions Spécialisées</div>
       <h1 class="section-title">Solutions Spécialisées</h1>
-      <p class="section-sub" style="margin:0 auto">Site Survey, Certification de Câbles et Sécurité Électronique pour vos infrastructures physiques.</p>
+      <p class="section-sub" style="margin:0 auto">Site Survey pour vos infrastructures physiques.</p>
     </div>
   </div>
   <section><div class="container">
@@ -882,31 +835,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
           <span class="tag">Recommandations</span>
         </div>
       </div>
-      <div class="expertise-detail">
-        <div style="font-size:2.5rem;margin-bottom:1rem">🔌</div>
-        <h3>Certification de Câbles</h3>
-        <p>La certification de câbles est la validation officielle que votre infrastructure de câblage répond aux normes de performance requises (Cat5e, Cat6, Cat6A, Cat7, fibre optique). Nous utilisons des certifiomètres Fluke Networks homologués pour des rapports conformes aux standards TIA/ISO.</p>
-        <p>Chaque lien testé fait l'objet d'un rapport de certification détaillé que vous pouvez présenter à vos assureurs ou en cas de litige.</p>
-        <div class="tag-list">
-          <span class="tag">Cat5e / Cat6 / Cat6A</span>
-          <span class="tag">Fibre Optique</span>
-          <span class="tag">Fluke Networks</span>
-          <span class="tag">Normes TIA/ISO</span>
-        </div>
-      </div>
-    </div>
-    <div class="expertise-detail">
-      <div style="font-size:2.5rem;margin-bottom:1rem">📷</div>
-      <h3>Sécurité Électronique</h3>
-      <p>Ingenius IT conçoit et installe des systèmes de sécurité électronique complets pour entreprises et particuliers. De la vidéosurveillance IP au contrôle d'accès biométrique, nous protégeons vos locaux avec les technologies les plus fiables.</p>
-      <div class="services-grid" style="margin-top:1.5rem">
-        <div class="service-card"><div class="service-icon">📹</div><h3>Vidéosurveillance IP</h3><p>Caméras IP HD avec vision nocturne, enregistrement cloud et accès à distance depuis smartphone.</p></div>
-        <div class="service-card"><div class="service-icon">🚪</div><h3>Contrôle d'Accès</h3><p>Badges, biométrie et gestion centralisée des droits d'accès pour sécuriser vos zones sensibles.</p></div>
-        <div class="service-card"><div class="service-icon">🚨</div><h3>Alarme & Détection</h3><p>Systèmes d'alarme intrusion avec détecteurs de mouvement et notification en temps réel.</p></div>
-      </div>
     </div>
   </div></section>
-  <div class="cta-section"><div class="cta-inner"><h2 class="section-title">Sécurisez vos infrastructures</h2><p>Nos experts interviennent pour des études de site, certifications ou installations de sécurité électronique sur toute la Tunisie.</p><a class="btn-primary" onclick="showPage('contact')">Prendre Contact</a></div></div>
+  <div class="cta-section"><div class="cta-inner"><h2 class="section-title">Sécurisez vos infrastructures</h2><p>Nos experts interviennent pour des études de site sur toute la Tunisie.</p><a class="btn-primary" onclick="showPage('contact')">Prendre Contact</a></div></div>
 </div>
 
 <!-- ══════════════ PAGE: BLOG ══════════════ -->
@@ -1017,7 +948,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
         <div style="margin-top:2rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;">
           <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:.8rem">🌍 Nous intervenons en :</div>
           <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
-            <span class="tag">Tunis</span><span class="tag">Sfax</span><span class="tag">Sousse</span><span class="tag">Bizerte</span><span class="tag">Nabeul</span><span class="tag">France entière</span>
+            <span class="tag">Tunis</span><span class="tag">Sfax</span><span class="tag">Sousse</span><span class="tag">France entière</span>
           </div>
         </div>
       </div>
@@ -1042,9 +973,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
             <option>Microsoft 365</option>
             <option>Solution IT</option>
             <option>Développement Web</option>
-            <option>Marketing Digital</option>
             <option>Virtualisation</option>
-            <option>Téléphonie IP</option>
             <option>Autre</option>
           </select>
         </div>
@@ -1061,7 +990,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="logo" style="font-size:1.3rem;cursor:default">Ingenius IT</div>
-      <p>Société informatique en Tunisie et France. Nous transformons vos défis technologiques en solutions innovantes et performantes.</p>
+      <p>Infini-Soft est une société de services et d’ingénierie informatique. Notre mission est d’accompagner les particuliers, les étudiants, les professionnels et les entreprises dans leur transformation digitale grâce à des solutions innovantes, performantes et adaptées aux besoins du marché.</p>
       <div class="footer-socials">
         <div class="social-btn">in</div>
         <a href="https://www.facebook.com/profile.php?id=61590506285521" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook">f</a>
@@ -1075,7 +1004,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
         <li><a onclick="showPage('infogerance')">Infogérance</a></li>
         <li><a onclick="showPage('cybersecurite')">Cybersécurité</a></li>
         <li><a onclick="showPage('maintenance')">Maintenance</a></li>
-        <li><a onclick="showPage('marketing')">Marketing Digital</a></li>
         <li><a onclick="showPage('audit')">Audit IT</a></li>
         <li><a onclick="showPage('erp')">Solution ERP</a></li>
         <li><a onclick="showPage('devweb')">Développement Web</a></li>
@@ -1087,19 +1015,15 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
         <li><a onclick="showPage('microsoft365')">Microsoft 365</a></li>
         <li><a onclick="showPage('solutionit')">Solution IT</a></li>
         <li><a onclick="showPage('virtualisation')">Virtualisation</a></li>
-        <li><a onclick="showPage('telephonie')">Téléphonie IP</a></li>
         <li><a onclick="showPage('solutions')">Site Survey</a></li>
-        <li><a onclick="showPage('solutions')">Certification Câbles</a></li>
-        <li><a onclick="showPage('solutions')">Sécurité Électronique</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
       <ul>
-        <li><a>+216 92 682 923</a></li>
-        <li><a>+216 50 678 456</a></li>
-        <li><a>04 65 01 14 38 (FR)</a></li>
-        <li><a>contact@ingeniusit.com</a></li>
+        <li><a>+216 26 554 153</a></li>
+        <li><a>Tunis · Sfax · Sousse · Mahdia</a></li>
+        <li><a>contact@infini-soft.tn</a></li>
         <li style="margin-top:.8rem"><a onclick="showPage('about')">À Propos</a></li>
         <li><a onclick="showPage('blog')">Blog</a></li>
         <li><a onclick="showPage('contact')">Devis Gratuit</a></li>
@@ -1107,8 +1031,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 Ingenius IT – Société Informatique Tunisie & France. Tous droits réservés.</p>
-    <p style="color:var(--text2);font-size:.8rem">Tunisie · France · Support 24/7</p>
+    <p>© 2026 Infini-Soft. Tous droits sont réservés.</p>
+    <p style="color:var(--text2);font-size:.8rem">Support 24/7</p>
   </div>
 </footer>
 
@@ -1123,7 +1047,24 @@ function showPage(id) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const nav = document.getElementById('nav-' + id);
     if (nav) nav.classList.add('active');
-    else document.getElementById('nav-services') && document.getElementById('nav-services').classList.add('active');
+    else {
+      if (document.getElementById('nav-services')) document.getElementById('nav-services').classList.add('active');
+      if (['microsoft365', 'solutionit', 'virtualisation', 'solutions'].includes(id) && document.getElementById('nav-solutions')) {
+        document.getElementById('nav-solutions').classList.add('active');
+      }
+    }
+  }
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (mobileMenu) {
+    const servicesSub = document.getElementById('mobileServicesMenu');
+    const servicesArrow = document.getElementById('mobileServicesArrow');
+    const solutionsSub = document.getElementById('mobileSolutionsMenu');
+    const solutionsArrow = document.getElementById('mobileSolutionsArrow');
+    if (servicesSub) servicesSub.style.display = 'none';
+    if (servicesArrow) servicesArrow.style.transform = '';
+    if (solutionsSub) solutionsSub.style.display = 'none';
+    if (solutionsArrow) solutionsArrow.style.transform = '';
+    mobileMenu.classList.remove('open');
   }
   initFadeIn();
 }
@@ -1131,6 +1072,28 @@ function showPage(id) {
 // ─── HAMBURGER ───
 function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ─── SOUS-MENU SERVICES MOBILE ───
+function toggleMobileServices(e) {
+  if (e) e.stopPropagation();
+  const sub = document.getElementById('mobileServicesMenu');
+  const arrow = document.getElementById('mobileServicesArrow');
+  if (!sub) return;
+  const isOpen = sub.style.display === 'block';
+  sub.style.display = isOpen ? 'none' : 'block';
+  if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
+}
+
+// ─── SOUS-MENU SOLUTIONS MOBILE ───
+function toggleMobileSolutions(e) {
+  if (e) e.stopPropagation();
+  const sub = document.getElementById('mobileSolutionsMenu');
+  const arrow = document.getElementById('mobileSolutionsArrow');
+  if (!sub) return;
+  const isOpen = sub.style.display === 'block';
+  sub.style.display = isOpen ? 'none' : 'block';
+  if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
 }
 
 // ─── FADE-IN OBSERVER ───
