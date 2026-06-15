@@ -124,9 +124,9 @@ body.light-mode .logo img.light-logo { display: block; }
 
 /* ─── HERO ─── */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px;}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0,119,255,0.12) 0%, transparent 70%),radial-gradient(ellipse 60% 50% at 20% 80%, rgba(123,47,247,0.10) 0%, transparent 70%);}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,255,0.04) 1px,transparent 1px);background-size:60px 60px;}
-.hero-inner{max-width:1280px;margin:auto;padding:4rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.hero-bg{position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0,119,255,0.12) 0%, transparent 70%),radial-gradient(ellipse 60% 50% at 20% 80%, rgba(123,47,247,0.10) 0%, transparent 70%);}
+.hero-grid{position:absolute;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,200,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,255,0.04) 1px,transparent 1px);background-size:60px 60px;}
+.hero-inner{position:relative;z-index:1;max-width:1280px;margin:auto;padding:4rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,200,255,0.1);border:1px solid rgba(0,200,255,0.25);border-radius:50px;padding:.35rem 1rem;font-size:.8rem;color:var(--accent);margin-bottom:1.5rem;}
 .hero-badge span{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
@@ -436,8 +436,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
         <h1>Transformez vos défis IT en <span class="grad">solutions innovantes</span></h1>
         <p>Chez Infini-Soft, nous accompagnons les entreprises de toutes tailles dans leur transformation numérique avec des solutions technologiques sur-mesure, performantes et sécurisées.</p>
         <div class="hero-btns">
-          <a href="javascript:void(0)" class="btn-primary" onclick="showPage('contact')">Devis Gratuit</a>
-          <a href="javascript:void(0)" class="btn-outline" onclick="scrollToAbout()">Découvrir Infini-Soft</a>
+          <button type="button" class="btn-primary" id="btn-devis" onclick="showPage('contact')">Devis Gratuit</button>
+          <button type="button" class="btn-outline" id="btn-about" onclick="showPage('about')">Découvrir Infini-Soft</button>
         </div>
       </div>
       <div class="hero-visual">
@@ -1180,43 +1180,34 @@ function scrollToAbout() {
 
 // ─── PAGE NAVIGATION ───
 function showPage(id) {
-  console.log('Navigating to page:', id);
-  
-  // Hide all pages
-  const allPages = document.querySelectorAll('.page');
-  allPages.forEach(p => {
+  // Cacher toutes les pages
+  document.querySelectorAll('.page').forEach(p => {
     p.classList.remove('active');
-    p.style.display = 'none';
+    p.style.display = '';
   });
-  
-  // Remove active class from all nav links
-  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => a.classList.remove('active'));
-  
-  // Show target page
+
+  // Retirer active des liens nav
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+
+  // Afficher la page cible
   const page = document.getElementById('page-' + id);
   if (page) {
-    page.style.display = 'block';
-    // Small timeout to allow display:block to take effect before adding class/scrolling
-    setTimeout(() => {
-      page.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      initFadeIn();
-    }, 10);
-    
-    // Update nav link
+    page.style.display = '';
+    page.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    initFadeIn();
+
+    // Mettre à jour le lien nav actif
     const nav = document.getElementById('nav-' + id);
     if (nav) {
       nav.classList.add('active');
     } else {
-      // Check if it's a service from the dropdown
       const servicesNav = document.getElementById('nav-services');
       if (servicesNav) servicesNav.classList.add('active');
     }
-  } else {
-    console.error('Page not found:', id);
   }
-  
-  // Close mobile menu if open
+
+  // Fermer le menu mobile
   const mobileMenu = document.getElementById('mobileMenu');
   if (mobileMenu) {
     mobileMenu.classList.remove('open');
@@ -1395,6 +1386,12 @@ themeToggle.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
   initFadeIn();
   animateCounters();
+
+  // Boutons hero — branchés directement
+  const btnDevis = document.getElementById('btn-devis');
+  const btnAbout = document.getElementById('btn-about');
+  if (btnDevis) btnDevis.addEventListener('click', function(){ showPage('contact'); });
+  if (btnAbout) btnAbout.addEventListener('click', function(){ showPage('about'); });
 });
 </script>
 </body>
