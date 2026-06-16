@@ -339,6 +339,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
   /* CTA */
   .cta-inner{padding:3rem 1rem;}
   .cta-inner h2{font-size:clamp(1.4rem,6vw,1.9rem);}
+  .cta-inner .btn-primary{width:auto;max-width:100%;display:inline-block;padding:.85rem 1.5rem;white-space:normal;word-break:break-word;}
+  .footer-brand p{font-size:.82rem;line-height:1.7;}
 
   /* Expertise */
   .expertise-detail{padding:1.5rem 1rem;}
