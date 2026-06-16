@@ -43,6 +43,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+body.menu-open{overflow:hidden;height:100vh;overscroll-behavior:none;}
 
 /* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar{width:6px;}
@@ -69,9 +70,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg);backdr
 .nav-cta:hover{opacity:0.9;color:#fff!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
 .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
-.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;z-index:999;}
+.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;z-index:999;max-height:calc(100vh - 70px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
 .mobile-menu.open{display:block;}
 .mobile-menu a{display:block;padding:.7rem 0;color:var(--text2);text-decoration:none;font-size:.95rem;border-bottom:1px solid var(--border);cursor:pointer;}
+#mobileSolutionsMenu{display:none;background:rgba(0,200,255,0.04);border-radius:8px;margin:.3rem 0;padding:.3rem .8rem;}
+#mobileSolutionsMenu a{font-size:.9rem;padding:.55rem 0;border-bottom:1px solid rgba(0,200,255,0.08);}
+#mobileSolutionsMenu a:last-child{border-bottom:none;}
 
 /* ─── HERO ─── */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px;}
@@ -1065,13 +1069,26 @@ function showPage(id) {
     if (solutionsSub) solutionsSub.style.display = 'none';
     if (solutionsArrow) solutionsArrow.style.transform = '';
     mobileMenu.classList.remove('open');
+    document.body.classList.remove('menu-open');
   }
   initFadeIn();
 }
 
 // ─── HAMBURGER ───
 function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
+  const menu = document.getElementById('mobileMenu');
+  if (!menu) return;
+  if (menu.classList.contains('open')) {
+    menu.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    const solutionsSub = document.getElementById('mobileSolutionsMenu');
+    const solutionsArrow = document.getElementById('mobileSolutionsArrow');
+    if (solutionsSub) solutionsSub.style.display = 'none';
+    if (solutionsArrow) solutionsArrow.style.transform = '';
+  } else {
+    menu.classList.add('open');
+    document.body.classList.add('menu-open');
+  }
 }
 
 // ─── SOUS-MENU SERVICES MOBILE ───
