@@ -200,6 +200,16 @@ section{padding:5rem 0; scroll-margin-top: 80px;}
 .testi-name{font-weight:600;font-size:.9rem;}
 .testi-role{color:var(--text2);font-size:.8rem;margin-top:.1rem;}
 
+/* ─── PARTNERS MARQUEE ─── */
+.marquee-wrapper{width:100%;overflow:hidden;padding:1.5rem 0;mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%);}
+.marquee-track{display:flex;gap:2rem;width:max-content;animation:marquee 30s linear infinite;}
+.marquee-track:hover{animation-play-state:paused;}
+.marquee-item{display:flex;flex-direction:column;align-items:center;gap:.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1rem 1.5rem;min-width:120px;transition:.2s;}
+.marquee-item:hover{border-color:var(--accent);transform:translateY(-2px);}
+.marquee-item img{width:80px;height:40px;object-fit:contain;}
+.marquee-item span{font-size:.75rem;font-weight:600;color:var(--text2);white-space:nowrap;}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
 /* ─── PARTNERS ─── */
 .partners-row{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;align-items:center;}
 .partner-logo{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.8rem 1.8rem;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:600;color:var(--text2);transition:.2s;}
@@ -617,25 +627,41 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 0 2
   </section>
 
   <!-- PARTNERS -->
-  <section style="background:var(--bg3);border-top:1px solid var(--border);">
+  <section style="background:var(--bg3);border-top:1px solid var(--border);overflow:hidden;">
     <div class="container">
       <div class="section-header text-center fade-in">
         <div class="section-label">Partenaires</div>
         <h2 class="section-title">Nos Partenaires Technologiques</h2>
       </div>
-      <div class="partners-row fade-in">
-        <div class="partner-logo">AWS</div>
-        <div class="partner-logo">Fortinet</div>
-        <div class="partner-logo">Microsoft</div>
-        <div class="partner-logo">Dell</div>
-        <div class="partner-logo">HP</div>
-        <div class="partner-logo">Kaspersky</div>
-        <div class="partner-logo">Citrix</div>
-        <div class="partner-logo">Juniper</div>
-        <div class="partner-logo">Google Cloud</div>
-        <div class="partner-logo">Dahua</div>
-        <div class="partner-logo">Legrand</div>
-        <div class="partner-logo">Grandstream</div>
+    </div>
+    <!-- CARROUSEL DÉFILANT -->
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <div class="marquee-item"><img src="https://img.logo.dev/dell.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Dell"><span>Dell</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/fortinet.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Fortinet"><span>Fortinet</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/kaspersky.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Kaspersky"><span>Kaspersky</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/dahuasecurity.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Dahua"><span>Dahua</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/veeam.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Veeam"><span>Veeam</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/vmware.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="VMware"><span>VMware</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/hp.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="HP"><span>HP</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/microsoft.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Microsoft"><span>Microsoft</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/cisco.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Cisco"><span>Cisco</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/aws.amazon.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="AWS"><span>AWS</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/cloud.google.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Google Cloud"><span>Google Cloud</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/juniper.net?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Juniper"><span>Juniper</span></div>
+        <!-- Duplication pour boucle infinie -->
+        <div class="marquee-item"><img src="https://img.logo.dev/dell.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Dell"><span>Dell</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/fortinet.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Fortinet"><span>Fortinet</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/kaspersky.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Kaspersky"><span>Kaspersky</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/dahuasecurity.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Dahua"><span>Dahua</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/veeam.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Veeam"><span>Veeam</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/vmware.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="VMware"><span>VMware</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/hp.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="HP"><span>HP</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/microsoft.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Microsoft"><span>Microsoft</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/cisco.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Cisco"><span>Cisco</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/aws.amazon.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="AWS"><span>AWS</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/cloud.google.com?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Google Cloud"><span>Google Cloud</span></div>
+        <div class="marquee-item"><img src="https://img.logo.dev/juniper.net?token=pk_SfCDy7N1RKK93CXsEDmhcQ" alt="Juniper"><span>Juniper</span></div>
       </div>
     </div>
   </section>
